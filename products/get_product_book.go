@@ -40,7 +40,7 @@ func (s productsServiceImpl) GetProductBook(
 	request *GetProductBookRequest,
 ) (*GetProductBookResponse, error) {
 
-	path := fmt.Sprintf("/brokerage/product_book?product_id=%s", request.ProductId)
+	path := fmt.Sprintf("/brokerage/product_book?product_id=%s&limit=%s", request.ProductId, request.Limit)
 
 	response := &GetProductBookResponse{Request: request}
 
