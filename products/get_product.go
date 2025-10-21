@@ -26,7 +26,8 @@ import (
 )
 
 type GetProductRequest struct {
-	ProductId string `json:"product_id"`
+	ProductId            string `json:"product_id"`
+	GetTradabilityStatus bool   `json:"get_tradability_status,omitempty"`
 }
 
 type GetProductResponse struct {
@@ -73,6 +74,9 @@ func (s productsServiceImpl) GetProduct(
 ) (*GetProductResponse, error) {
 
 	path := fmt.Sprintf("/brokerage/products/%s", request.ProductId)
+	if request.GetTradabilityStatus {
+		path = fmt.Sprintf("%s?get_tradability_status=true", path)
+	}
 
 	response := &GetProductResponse{Request: request}
 
