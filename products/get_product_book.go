@@ -31,8 +31,12 @@ type GetProductBookRequest struct {
 }
 
 type GetProductBookResponse struct {
-	PriceBook *model.PriceBook       `json:"pricebook"`
-	Request   *GetProductBookRequest `json:"request"`
+	PriceBook      *model.PriceBook       `json:"pricebook"`
+	Request        *GetProductBookRequest `json:"request"`
+	Last           string                 `json:"last"`
+	MidMarket      string                 `json:"mid_market"`
+	SpreadBps      string                 `json:"spread_bps"`
+	SpreadAbsolute string                 `json:"spread_absolute"`
 }
 
 func (s productsServiceImpl) GetProductBook(
